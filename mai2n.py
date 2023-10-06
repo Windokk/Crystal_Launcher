@@ -10,19 +10,27 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MainWindow(object):
-    def __init__(self, MainWindow):
-        self.MainWindow = MainWindow
-        self.setupUi()
-        self.storeWidget.hide()
-        self.ownedWidget.hide()
-        self.Menu_Indicator.hide()
-    def setupUi(self):
-        self.MainWindow.setObjectName("MainWindow")
-        self.MainWindow.resize(900, 600)
-        self.MainWindow.setMinimumSize(QtCore.QSize(880, 600))
-        self.MainWindow.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground, True)
-        self.MainWindow.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint)
-        self.centralwidget = QtWidgets.QWidget(parent=self.MainWindow)
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(900, 600)
+        MainWindow.setMinimumSize(QtCore.QSize(880, 600))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(240, 240, 240, 0))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(240, 240, 240, 0))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(240, 240, 240, 0))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(240, 240, 240, 0))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Window, brush)
+        MainWindow.setPalette(palette)
+        self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
+        self.centralwidget.setStyleSheet("border-radius: 5px;\n"
+"background:transparent;")
         self.centralwidget.setObjectName("centralwidget")
         self.drop_shadow_layout = QtWidgets.QVBoxLayout(self.centralwidget)
         self.drop_shadow_layout.setContentsMargins(0, 0, 0, 0)
@@ -84,7 +92,6 @@ class Ui_MainWindow(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("icons/minus.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_minimize.setIcon(icon)
-        self.btn_minimize.clicked.connect(self.MainWindow.showMinimized)
         self.btn_minimize.setObjectName("btn_minimize")
         self.horizontalLayout_3.addWidget(self.btn_minimize)
         self.btn_maximize = QtWidgets.QPushButton(parent=self.frame_btns)
@@ -102,7 +109,6 @@ class Ui_MainWindow(object):
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("icons/square.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_maximize.setIcon(icon1)
-        self.btn_maximize.clicked.connect(self.fullscreen)
         self.btn_maximize.setObjectName("btn_maximize")
         self.horizontalLayout_3.addWidget(self.btn_maximize)
         self.btn_close = QtWidgets.QPushButton(parent=self.frame_btns)
@@ -121,7 +127,6 @@ class Ui_MainWindow(object):
         icon2.addPixmap(QtGui.QPixmap("icons/cross.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_close.setIcon(icon2)
         self.btn_close.setObjectName("btn_close")
-        self.btn_close.clicked.connect(self.MainWindow.close)
         self.horizontalLayout_3.addWidget(self.btn_close)
         self.horizontalLayout.addWidget(self.frame_btns)
         self.verticalLayout.addWidget(self.title_bar)
@@ -163,7 +168,6 @@ class Ui_MainWindow(object):
 "    background-color: rgb(116, 116, 116);\n"
 "}")
         self.storeBtn.setObjectName("storeBtn")
-        self.storeBtn.clicked.connect(self.store)
         self.Tabs.addWidget(self.storeBtn)
         self.line = QtWidgets.QFrame(parent=self.horizontalLayoutWidget)
         self.line.setMaximumSize(QtCore.QSize(16777215, 35))
@@ -183,11 +187,17 @@ class Ui_MainWindow(object):
         font.setFamily("Nirmala UI Semilight")
         font.setPointSize(18)
         self.ownedBtn.setFont(font)
-        self.ownedBtn.setStyleSheet("QPushButton {\n""    border: none;\n""    color: rgb(168, 168, 168);\n""    border-radius: 1px;        \n""    background-color: transparent;\n""}\n""QPushButton:hover {    \n""    background-color: rgb(116, 116, 116);\n""}")
+        self.ownedBtn.setStyleSheet("QPushButton {\n"
+"    border: none;\n"
+"    color: rgb(168, 168, 168);\n"
+"    border-radius: 1px;        \n"
+"    background-color: transparent;\n"
+"}\n"
+"QPushButton:hover {    \n"
+"    background-color: rgb(116, 116, 116);\n"
+"}")
         self.ownedBtn.setObjectName("ownedBtn")
-        self.ownedBtn.clicked.connect(self.owned)
         self.Tabs.addWidget(self.ownedBtn)
-        self.verticalLayout.addWidget(self.content_bar)
         self.ownedWidget = QtWidgets.QTabWidget(parent=self.content_bar)
         self.ownedWidget.setGeometry(QtCore.QRect(16, 59, 731, 481))
         self.ownedWidget.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
@@ -214,7 +224,7 @@ class Ui_MainWindow(object):
         self.ownedWidget.setObjectName("ownedWidget")
         self.owned_games = QtWidgets.QWidget()
         self.owned_games.setStyleSheet("background-color: rgb(45, 45, 45);")
-        self.owned_games.setObjectName("games")
+        self.owned_games.setObjectName("owned_games")
         self.verticalWidget = QtWidgets.QWidget(parent=self.owned_games)
         self.verticalWidget.setGeometry(QtCore.QRect(0, 0, 731, 441))
         self.verticalWidget.setStyleSheet("")
@@ -710,26 +720,12 @@ class Ui_MainWindow(object):
         self.storeWidget.setTabText(self.storeWidget.indexOf(self.store_shop), _translate("MainWindow", "Shop"))
         self.storeWidget.setTabText(self.storeWidget.indexOf(self.store_dlcs), _translate("MainWindow", "DLCs"))
 
-    def fullscreen(self):
-        if self.MainWindow.isFullScreen():
-            self.MainWindow.showNormal()
-        else:
-            self.MainWindow.showFullScreen()
-    def store(self):
-        self.storeWidget.show()
-        self.ownedWidget.hide()
-        self.Menu_Indicator.show()
-        self.Menu_Indicator.setGeometry(QtCore.QRect(128, 50, 118, 1))
-    def owned(self):
-        self.ownedWidget.show()
-        self.storeWidget.hide()
-        self.Menu_Indicator.show()
-        self.Menu_Indicator.setGeometry(QtCore.QRect(500, 50, 118, 1))
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow(MainWindow)
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec())
