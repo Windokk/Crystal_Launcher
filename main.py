@@ -7,7 +7,7 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-
+from PyQt6.QtGui import QPixmap
 
 class Ui_MainWindow(object):
     def __init__(self, MainWindow):
@@ -190,6 +190,9 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.content_bar)
         self.ownedWidget = QtWidgets.QTabWidget(parent=self.content_bar)
         self.ownedWidget.setGeometry(QtCore.QRect(16, 59, 731, 481))
+        font = QtGui.QFont()
+        font.setFamily("Nirmala UI Semilight")
+        self.ownedWidget.setFont(font)
         self.ownedWidget.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.ownedWidget.setAutoFillBackground(False)
         self.ownedWidget.setStyleSheet("QTabBar::tab {\n"
@@ -399,6 +402,9 @@ class Ui_MainWindow(object):
         self.Menu_Indicator.setObjectName("Menu_Indicator")
         self.storeWidget = QtWidgets.QTabWidget(parent=self.content_bar)
         self.storeWidget.setGeometry(QtCore.QRect(16, 59, 731, 481))
+        font = QtGui.QFont()
+        font.setFamily("Nirmala UI Semilight")
+        self.storeWidget.setFont(font)
         self.storeWidget.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.storeWidget.setAutoFillBackground(False)
         self.storeWidget.setStyleSheet("QTabBar::tab {\n"
@@ -684,18 +690,32 @@ class Ui_MainWindow(object):
         self.frame_5.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_5.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_5.setObjectName("frame_5")
+        image_path = 'path_to_your_image.jpg'  # Replace with the path to your image file
+        pixmap = QPixmap(image_path)
+        if not pixmap.isNull():
+            # Create a QLabel to display the image
+            image_label = QtWidgets.QLabel(self)
+            image_label.setPixmap(pixmap)
+
+            # Add the QLabel to the layout
+            self.centralwidget.addWidget(image_label)
+        else:
+            # Display an error message if the image cannot be loaded
+            error_label = QtWidgets.QLabel("Error: Image not found")
+            self.centralwidget.addWidget(error_label)
+
         self.verticalLayout_10.addWidget(self.frame_5)
         self.scrollArea_4.setWidget(self.scrollAreaWidgetContents_4)
         self.verticalLayout_9.addWidget(self.scrollArea_4)
         self.storeWidget.addTab(self.store_dlcs, "")
         self.verticalLayout.addWidget(self.content_bar)
         self.drop_shadow_layout.addWidget(self.drop_shadow_frame)
-        MainWindow.setCentralWidget(self.centralwidget)
+        self.MainWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUi(self.MainWindow)
         self.ownedWidget.setCurrentIndex(0)
         self.storeWidget.setCurrentIndex(1)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(self.MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -709,6 +729,7 @@ class Ui_MainWindow(object):
         self.storeWidget.setTabText(self.storeWidget.indexOf(self.store_games), _translate("MainWindow", "Games"))
         self.storeWidget.setTabText(self.storeWidget.indexOf(self.store_shop), _translate("MainWindow", "Shop"))
         self.storeWidget.setTabText(self.storeWidget.indexOf(self.store_dlcs), _translate("MainWindow", "DLCs"))
+
 
     def fullscreen(self):
         if self.MainWindow.isFullScreen():
@@ -726,10 +747,34 @@ class Ui_MainWindow(object):
         self.Menu_Indicator.show()
         self.Menu_Indicator.setGeometry(QtCore.QRect(500, 50, 118, 1))
 
+class MainWindow(QtWidgets.QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.ui_main_window = Ui_MainWindow(self)
+        self.ui_main_window.setupUi()
+        self.offset = None
+        # install the event filter on the infoBar widget
+        self.ui_main_window.title_bar.installEventFilter(self)
+
+    def eventFilter(self, source, event):
+        if source == self.ui_main_window.title_bar:
+            if event.type() == QtCore.QEvent.Type.MouseButtonPress:
+                self.offset = event.pos()
+            elif event.type() == QtCore.QEvent.Type.MouseMove and self.offset is not None:
+                # no need for complex computations: just use the offset to compute
+                # "delta" position, and add that to the current one
+                self.move(self.pos() - self.offset + event.pos())
+                # return True to tell Qt that the event has been accepted and
+                # should not be processed any further
+                return True
+            elif event.type() == QtCore.QEvent.Type.MouseButtonRelease:
+                self.offset = None
+        # let Qt process any other event
+        return super().eventFilter(source, event)
+    
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow(MainWindow)
-    MainWindow.show()
+    MainWindow_ = MainWindow()
+    MainWindow_.show()
     sys.exit(app.exec())
