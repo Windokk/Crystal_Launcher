@@ -31,7 +31,6 @@ Go to the release section : Actual release (Oct 2023) : 0.0.1
 - Online shop
 - Account Settings
 - Launcher preferences :
-    - Light/dark mode toggle
     - Language (10 different languages (0.0.1))
     - Currency Settings
 - Online Game Store
