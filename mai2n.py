@@ -7,19 +7,30 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtGui import QPixmap
+
 
 class Ui_MainWindow(object):
-    def __init__(self, MainWindow):
-        self.MainWindow = MainWindow
-        self.setupUi()
-    def setupUi(self):
-        self.MainWindow.setObjectName("MainWindow")
-        self.MainWindow.resize(880, 600)
-        self.MainWindow.setMinimumSize(QtCore.QSize(880, 600))
-        self.MainWindow.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground, True)
-        self.MainWindow.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint)
-        self.centralwidget = QtWidgets.QWidget(parent=self.MainWindow)
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(880, 600)
+        MainWindow.setMinimumSize(QtCore.QSize(880, 600))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(240, 240, 240, 0))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Active, QtGui.QPalette.ColorRole.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(240, 240, 240, 0))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Inactive, QtGui.QPalette.ColorRole.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(240, 240, 240, 0))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(240, 240, 240, 0))
+        brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
+        palette.setBrush(QtGui.QPalette.ColorGroup.Disabled, QtGui.QPalette.ColorRole.Window, brush)
+        MainWindow.setPalette(palette)
+        self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
+        self.centralwidget.setStyleSheet("border-radius: 5px;\n"
+"background:transparent;")
         self.centralwidget.setObjectName("centralwidget")
         self.drop_shadow_layout = QtWidgets.QVBoxLayout(self.centralwidget)
         self.drop_shadow_layout.setContentsMargins(0, 0, 0, 0)
@@ -81,7 +92,6 @@ class Ui_MainWindow(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("icons/minus.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_minimize.setIcon(icon)
-        self.btn_minimize.clicked.connect(self.MainWindow.showMinimized)
         self.btn_minimize.setObjectName("btn_minimize")
         self.horizontalLayout_3.addWidget(self.btn_minimize)
         self.btn_maximize = QtWidgets.QPushButton(parent=self.frame_btns)
@@ -99,7 +109,6 @@ class Ui_MainWindow(object):
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("icons/square.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_maximize.setIcon(icon1)
-        self.btn_maximize.clicked.connect(self.fullscreen)
         self.btn_maximize.setObjectName("btn_maximize")
         self.horizontalLayout_3.addWidget(self.btn_maximize)
         self.btn_close = QtWidgets.QPushButton(parent=self.frame_btns)
@@ -118,7 +127,6 @@ class Ui_MainWindow(object):
         icon2.addPixmap(QtGui.QPixmap("icons/cross.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_close.setIcon(icon2)
         self.btn_close.setObjectName("btn_close")
-        self.btn_close.clicked.connect(self.MainWindow.close)
         self.horizontalLayout_3.addWidget(self.btn_close)
         self.horizontalLayout.addWidget(self.frame_btns)
         self.verticalLayout.addWidget(self.title)
@@ -160,7 +168,7 @@ class Ui_MainWindow(object):
         self.MenuItems.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.MenuItems.setObjectName("MenuItems")
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.MenuItems)
-        self.horizontalLayout_4.setContentsMargins(0, 10, 0, 10)
+        self.horizontalLayout_4.setContentsMargins(0, 10, 0, 0)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.frame_2 = QtWidgets.QFrame(parent=self.MenuItems)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Maximum, QtWidgets.QSizePolicy.Policy.Preferred)
@@ -195,7 +203,6 @@ class Ui_MainWindow(object):
 "    background-color: rgb(116, 116, 116);\n"
 "}")
         self.storeBtn.setObjectName("storeBtn")
-        self.storeBtn.clicked.connect(self.store)
         self.horizontalLayout_4.addWidget(self.storeBtn)
         self.separationLine = QtWidgets.QFrame(parent=self.MenuItems)
         self.separationLine.setMaximumSize(QtCore.QSize(16777215, 35))
@@ -226,7 +233,6 @@ class Ui_MainWindow(object):
 "    background-color: rgb(116, 116, 116);\n"
 "}")
         self.ownedBtn.setObjectName("ownedBtn")
-        self.ownedBtn.clicked.connect(self.owned)
         self.horizontalLayout_4.addWidget(self.ownedBtn)
         self.middlespacer = QtWidgets.QFrame(parent=self.MenuItems)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Maximum, QtWidgets.QSizePolicy.Policy.Preferred)
@@ -295,7 +301,7 @@ class Ui_MainWindow(object):
         self.MenuIndicatorContainer.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.MenuIndicatorContainer.setObjectName("MenuIndicatorContainer")
         self.MenuIndicator = QtWidgets.QFrame(parent=self.MenuIndicatorContainer)
-        self.MenuIndicator.setGeometry(QtCore.QRect(102, 0, 100, 1))
+        self.MenuIndicator.setGeometry(QtCore.QRect(100, 0, 100, 1))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -903,12 +909,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_104 = QtWidgets.QVBoxLayout(self.owned_dlcs_scrollAreaWidgetContents)
         self.verticalLayout_104.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_104.setObjectName("verticalLayout_104")
-        self.dlc1_1 = QtWidgets.QFrame(parent=self.owned_dlcs_scrollAreaWidgetContents)
-        self.dlc1_1.setMinimumSize(QtCore.QSize(698, 2000))
-        self.dlc1_1.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
-        self.dlc1_1.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
-        self.dlc1_1.setObjectName("dlc1_1")
-        self.verticalLayout_104.addWidget(self.dlc1_1)
+        self.dlc11 = QtWidgets.QFrame(parent=self.owned_dlcs_scrollAreaWidgetContents)
+        self.dlc11.setMinimumSize(QtCore.QSize(698, 2000))
+        self.dlc11.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.dlc11.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.dlc11.setObjectName("dlc11")
+        self.verticalLayout_104.addWidget(self.dlc11)
         self.owned_dlcs_scrollArea.setWidget(self.owned_dlcs_scrollAreaWidgetContents)
         self.verticalLayout_94.addWidget(self.owned_dlcs_scrollArea)
         self.horizontalLayout_64.addWidget(self.owned_dlcs_widgets)
@@ -954,7 +960,6 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.resizer.sizePolicy().hasHeightForWidth())
         self.resizer.setSizePolicy(sizePolicy)
         self.resizer.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.SizeFDiagCursor))
-        self.resizer.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.SizeFDiagCursor))
         self.resizer.setText("")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap("icons/resize-dots.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -963,16 +968,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addWidget(self.resizer)
         self.verticalLayout.addWidget(self.bottomBar)
         self.drop_shadow_layout.addWidget(self.background)
-        self.MainWindow.setCentralWidget(self.centralwidget)
+        MainWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(self.MainWindow)
+        self.retranslateUi(MainWindow)
+        self.storeWidget.setCurrentIndex(0)
         self.ownedWidget.setCurrentIndex(0)
-        self.storeWidget.setCurrentIndex(1)
-        QtCore.QMetaObject.connectSlotsByName(self.MainWindow)
-
-        self.storeWidget.hide()
-        self.ownedWidget.hide()
-        self.MenuIndicator.hide()
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -981,76 +982,18 @@ class Ui_MainWindow(object):
         self.btn_close.setToolTip(_translate("MainWindow", "Close"))
         self.storeBtn.setText(_translate("MainWindow", "STORE"))
         self.ownedBtn.setText(_translate("MainWindow", "OWNED"))
+        self.storeWidget.setTabText(self.storeWidget.indexOf(self.store_games), _translate("MainWindow", "Games"))
+        self.storeWidget.setTabText(self.storeWidget.indexOf(self.store_dlcs), _translate("MainWindow", "DLCs"))
+        self.storeWidget.setTabText(self.storeWidget.indexOf(self.store_shop), _translate("MainWindow", "Shop"))
         self.ownedWidget.setTabText(self.ownedWidget.indexOf(self.owned_games), _translate("MainWindow", "Games"))
         self.ownedWidget.setTabText(self.ownedWidget.indexOf(self.owned_dlcs), _translate("MainWindow", "DLCs"))
-        self.storeWidget.setTabText(self.storeWidget.indexOf(self.store_games), _translate("MainWindow", "Games"))
-        self.storeWidget.setTabText(self.storeWidget.indexOf(self.store_shop), _translate("MainWindow", "Shop"))
-        self.storeWidget.setTabText(self.storeWidget.indexOf(self.store_dlcs), _translate("MainWindow", "DLCs"))
 
-    def fullscreen(self):
-        if self.MainWindow.isFullScreen():
-            self.MainWindow.showNormal()
-        else:
-            self.MainWindow.showFullScreen()
-    def store(self):
-        self.ownedWidget.hide()
-        self.storeWidget.show()
-        self.MenuIndicator.show()
-        self.MenuIndicator.setGeometry(QtCore.QRect(104, 0, 100, 1))
-    def owned(self):
-        self.storeWidget.hide()
-        self.ownedWidget.show()
-        self.MenuIndicator.show()
-        self.MenuIndicator.setGeometry(QtCore.QRect(378, 0, 100, 1))
 
-class MainWindow(QtWidgets.QMainWindow):
-    def __init__(self):
-        super().__init__()
-        self.ui_main_window = Ui_MainWindow(self)
-        self.ui_main_window.setupUi()
-        self.offset = None
-        self.ui_main_window.title.installEventFilter(self)
-        self.ui_main_window.resizer.installEventFilter(self)
-
-    def eventFilter(self, source, event):
-        ## Window Move
-        if source == self.ui_main_window.title:
-            if event.type() == QtCore.QEvent.Type.MouseButtonPress:
-                self.offset = event.pos()
-            elif event.type() == QtCore.QEvent.Type.MouseMove and self.offset is not None:
-                # no need for complex computations: just use the offset to compute
-                # "delta" position, and add that to the current one
-                self.move(self.pos() - self.offset + event.pos())
-                # return True to tell Qt that the event has been accepted and
-                # should not be processed any further
-                return True
-            elif event.type() == QtCore.QEvent.Type.MouseButtonRelease:
-                self.offset = None
-
-        ##########################################################
-        ## Window Resizer
-        if source == self.ui_main_window.resizer:
-            if event.type() == QtCore.QEvent.Type.MouseButtonPress:
-                self.offset = event.pos()
-            elif event.type() == QtCore.QEvent.Type.MouseMove and self.offset is not None:
-                self.setUpdatesEnabled(False)
-                delta = event.pos() - self.offset
-                new_geometry = self.geometry()
-                new_geometry.setRight(new_geometry.right() + delta.x())
-                new_geometry.setBottom(new_geometry.bottom() + delta.y())
-                self.setGeometry(new_geometry)
-                self.offset = event.pos()
-                self.setUpdatesEnabled(True)
-            elif event.type() == QtCore.QEvent.Type.MouseButtonRelease:
-                self.offset = None
-
-        ##########################################################
-
-        return super().eventFilter(source, event)
-    
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow_ = MainWindow()
-    MainWindow_.show()
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
     sys.exit(app.exec())

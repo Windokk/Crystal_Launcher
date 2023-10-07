@@ -84,7 +84,7 @@ background:transparent;</string>
      <number>0</number>
     </property>
     <item>
-     <widget class="QFrame" name="drop_shadow_frame">
+     <widget class="QFrame" name="background">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(45, 45, 45);
 border-radius: 5px;</string>
@@ -112,7 +112,7 @@ border-radius: 5px;</string>
         <number>0</number>
        </property>
        <item>
-        <widget class="QFrame" name="title_bar">
+        <widget class="QFrame" name="title">
          <property name="maximumSize">
           <size>
            <width>16777215</width>
@@ -149,7 +149,7 @@ border-radius: 5px;</string>
             <property name="minimumSize">
              <size>
               <width>0</width>
-              <height>50</height>
+              <height>40</height>
              </size>
             </property>
             <property name="font">
@@ -313,7 +313,13 @@ QPushButton:hover {
         </widget>
        </item>
        <item>
-        <widget class="QFrame" name="content_bar">
+        <widget class="QFrame" name="content">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
@@ -329,512 +335,429 @@ QPushButton:hover {
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QFrame" name="frame">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>0</y>
-            <width>731</width>
-            <height>51</height>
-           </rect>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <widget class="QWidget" name="horizontalLayoutWidget">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>731</width>
-             <height>51</height>
-            </rect>
-           </property>
-           <layout class="QHBoxLayout" name="Tabs">
-            <item>
-             <widget class="QPushButton" name="storeBtn">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>300</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <family>Nirmala UI Semilight</family>
-                <pointsize>18</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QPushButton {
-	border: none;
-	color: rgb(168, 168, 168);
-	border-radius: 1px;		
-	background-color: transparent;
-}
-QPushButton:hover {	
-	background-color: rgb(116, 116, 116);
-}</string>
-              </property>
-              <property name="text">
-               <string>STORE</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="Line" name="line">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>35</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color: rgb(161, 161, 161)</string>
-              </property>
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="ownedBtn">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>300</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <family>Nirmala UI Semilight</family>
-                <pointsize>18</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QPushButton {
-	border: none;
-	color: rgb(168, 168, 168);
-	border-radius: 1px;		
-	background-color: transparent;
-}
-QPushButton:hover {	
-	background-color: rgb(116, 116, 116);
-}</string>
-              </property>
-              <property name="text">
-               <string>OWNED</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </widget>
-         <widget class="QTabWidget" name="ownedWidget">
-          <property name="geometry">
-           <rect>
-            <x>16</x>
-            <y>59</y>
-            <width>731</width>
-            <height>481</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Nirmala UI Semilight</family>
-           </font>
-          </property>
-          <property name="layoutDirection">
-           <enum>Qt::LeftToRight</enum>
-          </property>
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QTabBar::tab {
-  background: rgb(45, 45, 45);
-  color: rgb(168, 168, 168);
-  padding:10px;
-  border: 0px solid rgb(168, 168, 168);
- }
-
-QTabWidget::pane { border: none; }
-
- QTabBar::tab:selected {
-  border-bottom-width: 1px;
- }</string>
-          </property>
-          <property name="tabPosition">
-           <enum>QTabWidget::North</enum>
-          </property>
-          <property name="tabShape">
-           <enum>QTabWidget::Rounded</enum>
-          </property>
-          <property name="currentIndex">
+         <layout class="QVBoxLayout" name="verticalLayout_13">
+          <property name="spacing">
            <number>0</number>
           </property>
-          <property name="elideMode">
-           <enum>Qt::ElideNone</enum>
+          <property name="leftMargin">
+           <number>0</number>
           </property>
-          <property name="usesScrollButtons">
-           <bool>true</bool>
+          <property name="topMargin">
+           <number>0</number>
           </property>
-          <property name="documentMode">
-           <bool>false</bool>
+          <property name="rightMargin">
+           <number>0</number>
           </property>
-          <property name="tabsClosable">
-           <bool>false</bool>
+          <property name="bottomMargin">
+           <number>0</number>
           </property>
-          <property name="tabBarAutoHide">
-           <bool>false</bool>
-          </property>
-          <widget class="QWidget" name="owned_games">
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(45, 45, 45);</string>
-           </property>
-           <attribute name="title">
-            <string>Games</string>
-           </attribute>
-           <widget class="QWidget" name="verticalWidget" native="true">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>731</width>
-              <height>441</height>
-             </rect>
+          <item>
+           <widget class="QFrame" name="Menu">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
             </property>
-            <property name="styleSheet">
-             <string notr="true"/>
+            <property name="maximumSize">
+             <size>
+              <width>1677721</width>
+              <height>16777215</height>
+             </size>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_3">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
              <property name="leftMargin">
-              <number>9</number>
+              <number>0</number>
              </property>
              <property name="topMargin">
-              <number>9</number>
+              <number>0</number>
              </property>
              <property name="rightMargin">
-              <number>9</number>
+              <number>0</number>
              </property>
              <property name="bottomMargin">
-              <number>9</number>
+              <number>0</number>
              </property>
              <item>
-              <widget class="QScrollArea" name="scrollArea">
-               <property name="styleSheet">
-                <string notr="true">/* VERTICAL SCROLLBAR */
- QScrollBar:vertical {
-	border: none;
-    background: rgb(45, 45, 45);
-    width: 14px;
-    margin: 15px 0 15px 0;
-	border-radius: 0px;
- }
-
-/*  HANDLE BAR VERTICAL */
-QScrollBar::handle:vertical {	
-	background-color: rgb(65, 65, 65);
-	min-height: 30px;
-	border-radius: 5px;
-}
-QScrollBar::handle:vertical:hover{	
-	background-color: rgb(75, 75, 75);
-}
-QScrollBar::handle:vertical:pressed {	
-	background-color: rgb(80, 80, 80);
-}
-
-/* BTN TOP - SCROLLBAR */
-QScrollBar::sub-line:vertical {
-	border: none;
-	background-color: rgb(65, 65, 65);
-	height: 15px;
-	border-radius: 4px;
-	subcontrol-position: top;
-	subcontrol-origin: margin;
-}
-QScrollBar::sub-line:vertical:hover {	
-	background-color: rgb(75, 75, 75);
-}
-QScrollBar::sub-line:vertical:pressed {	
-	background-color: rgb(80, 80, 80);
-}
-
-/* BTN BOTTOM - SCROLLBAR */
-QScrollBar::add-line:vertical {
-	border: none;
-	background-color: rgb(65, 65, 65);
-	height: 15px;
-	border-radius: 4px;
-	subcontrol-position: bottom;
-	subcontrol-origin: margin;
-}
-QScrollBar::add-line:vertical:hover {	
-	background-color: rgb(75, 75, 75);
-}
-QScrollBar::add-line:vertical:pressed {	
-	background-color: rgb(80, 80, 80);
-}
-
-/* RESET ARROW */
-QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
-	background: none;
-}
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-	background: none;
-}</string>
+              <widget class="QFrame" name="MenuItems">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
                </property>
-               <property name="widgetResizable">
-                <bool>true</bool>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
                </property>
-               <widget class="QWidget" name="scrollAreaWidgetContents">
-                <property name="geometry">
-                 <rect>
-                  <x>0</x>
-                  <y>0</y>
-                  <width>699</width>
-                  <height>2000</height>
-                 </rect>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_4">
+                <property name="leftMargin">
+                 <number>0</number>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_4">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QFrame" name="frame_2">
-                   <property name="minimumSize">
-                    <size>
-                     <width>698</width>
-                     <height>2000</height>
-                    </size>
+                <property name="topMargin">
+                 <number>10</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QFrame" name="frame_2">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>21</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="storeBtn">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>250</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Nirmala UI Semilight</family>
+                    <pointsize>18</pointsize>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton {
+	border: none;
+	color: rgb(168, 168, 168);
+	border-radius: 1px;		
+	background-color: transparent;
+}
+QPushButton:hover {	
+	background-color: rgb(116, 116, 116);
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>STORE</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="Line" name="separationLine">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(161, 161, 161)</string>
+                  </property>
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="ownedBtn">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>250</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Nirmala UI Semilight</family>
+                    <pointsize>18</pointsize>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton {
+	border: none;
+	color: rgb(168, 168, 168);
+	border-radius: 1px;		
+	background-color: transparent;
+}
+QPushButton:hover {	
+	background-color: rgb(116, 116, 116);
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>OWNED</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QFrame" name="middlespacer">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>100</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>10000</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QFrame" name="PlayerIcon">
+                  <property name="maximumSize">
+                   <size>
+                    <width>40</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_3">
+                   <property name="spacing">
+                    <number>0</number>
                    </property>
-                   <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
+                   <property name="leftMargin">
+                    <number>0</number>
                    </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
+                   <property name="topMargin">
+                    <number>0</number>
                    </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <widget class="QPushButton" name="PlayerBtn">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>5000</width>
+                       <height>5000</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QPushButton{
+	border: 2px solid  white;
+	background-color:rgb(45,45,45);
+	border-color: rgb(255, 255, 255);
+	border-radius:16px;
+
+}</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset>
+                       <normaloff>icons/default-user.png</normaloff>icons/default-user.png</iconset>
+                     </property>
+                     <property name="iconSize">
+                      <size>
+                       <width>20</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QFrame" name="rightspacer">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>24</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </widget>
              </item>
             </layout>
            </widget>
-          </widget>
-          <widget class="QWidget" name="owned_dlcs">
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(45, 45, 45);</string>
-           </property>
-           <attribute name="title">
-            <string>DLCs</string>
-           </attribute>
-           <widget class="QWidget" name="verticalWidget_2" native="true">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>731</width>
-              <height>441</height>
-             </rect>
+          </item>
+          <item>
+           <widget class="QFrame" name="MenuIndicatorContainer">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
             </property>
-            <property name="styleSheet">
-             <string notr="true"/>
+            <property name="maximumSize">
+             <size>
+              <width>100000</width>
+              <height>10</height>
+             </size>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_5">
-             <property name="leftMargin">
-              <number>9</number>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <widget class="Line" name="MenuIndicator">
+             <property name="geometry">
+              <rect>
+               <x>100</x>
+               <y>0</y>
+               <width>100</width>
+               <height>1</height>
+              </rect>
              </property>
-             <property name="topMargin">
-              <number>9</number>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
              </property>
-             <property name="rightMargin">
-              <number>9</number>
+             <property name="maximumSize">
+              <size>
+               <width>167</width>
+               <height>167</height>
+              </size>
              </property>
-             <property name="bottomMargin">
-              <number>9</number>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(168, 168, 168);</string>
              </property>
-             <item>
-              <widget class="QScrollArea" name="scrollArea_2">
-               <property name="styleSheet">
-                <string notr="true">/* VERTICAL SCROLLBAR */
- QScrollBar:vertical {
-	border: none;
-    background: rgb(45, 45, 45);
-    width: 14px;
-    margin: 15px 0 15px 0;
-	border-radius: 0px;
- }
-
-/*  HANDLE BAR VERTICAL */
-QScrollBar::handle:vertical {	
-	background-color: rgb(65, 65, 65);
-	min-height: 30px;
-	border-radius: 5px;
-}
-QScrollBar::handle:vertical:hover{	
-	background-color: rgb(75, 75, 75);
-}
-QScrollBar::handle:vertical:pressed {	
-	background-color: rgb(80, 80, 80);
-}
-
-/* BTN TOP - SCROLLBAR */
-QScrollBar::sub-line:vertical {
-	border: none;
-	background-color: rgb(65, 65, 65);
-	height: 15px;
-	border-radius: 4px;
-	subcontrol-position: top;
-	subcontrol-origin: margin;
-}
-QScrollBar::sub-line:vertical:hover {	
-	background-color: rgb(75, 75, 75);
-}
-QScrollBar::sub-line:vertical:pressed {	
-	background-color: rgb(80, 80, 80);
-}
-
-/* BTN BOTTOM - SCROLLBAR */
-QScrollBar::add-line:vertical {
-	border: none;
-	background-color: rgb(65, 65, 65);
-	height: 15px;
-	border-radius: 4px;
-	subcontrol-position: bottom;
-	subcontrol-origin: margin;
-}
-QScrollBar::add-line:vertical:hover {	
-	background-color: rgb(75, 75, 75);
-}
-QScrollBar::add-line:vertical:pressed {	
-	background-color: rgb(80, 80, 80);
-}
-
-/* RESET ARROW */
-QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
-	background: none;
-}
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-	background: none;
-}</string>
-               </property>
-               <property name="widgetResizable">
-                <bool>true</bool>
-               </property>
-               <widget class="QWidget" name="scrollAreaWidgetContents_2">
-                <property name="geometry">
-                 <rect>
-                  <x>0</x>
-                  <y>0</y>
-                  <width>699</width>
-                  <height>2000</height>
-                 </rect>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_6">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QFrame" name="frame_3">
-                   <property name="minimumSize">
-                    <size>
-                     <width>698</width>
-                     <height>2000</height>
-                    </size>
-                   </property>
-                   <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </widget>
-             </item>
-            </layout>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
            </widget>
-          </widget>
-         </widget>
-         <widget class="Line" name="Menu_Indicator">
-          <property name="geometry">
-           <rect>
-            <x>500</x>
-            <y>50</y>
-            <width>118</width>
-            <height>1</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background:rgb(170, 170, 170)</string>
-          </property>
-          <property name="lineWidth">
-           <number>1</number>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-         <widget class="QTabWidget" name="storeWidget">
-          <property name="geometry">
-           <rect>
-            <x>16</x>
-            <y>59</y>
-            <width>731</width>
-            <height>481</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Nirmala UI Semilight</family>
-           </font>
-          </property>
-          <property name="layoutDirection">
-           <enum>Qt::LeftToRight</enum>
-          </property>
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QTabBar::tab {
+          </item>
+          <item>
+           <widget class="QFrame" name="SubMenus">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>1677721</width>
+              <height>1677721</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <item>
+              <widget class="QTabWidget" name="storeWidget">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>1677725</width>
+                 <height>1677725</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Nirmala UI Semilight</family>
+                </font>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="autoFillBackground">
+                <bool>false</bool>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QTabBar::tab {
   background: rgb(45, 45, 45);
   color: rgb(168, 168, 168);
   padding:10px;
@@ -846,67 +769,85 @@ QTabWidget::pane { border: none; }
  QTabBar::tab:selected {
   border-bottom-width: 1px;
  }</string>
-          </property>
-          <property name="tabPosition">
-           <enum>QTabWidget::North</enum>
-          </property>
-          <property name="tabShape">
-           <enum>QTabWidget::Rounded</enum>
-          </property>
-          <property name="currentIndex">
-           <number>1</number>
-          </property>
-          <property name="elideMode">
-           <enum>Qt::ElideNone</enum>
-          </property>
-          <property name="usesScrollButtons">
-           <bool>true</bool>
-          </property>
-          <property name="documentMode">
-           <bool>false</bool>
-          </property>
-          <property name="tabsClosable">
-           <bool>false</bool>
-          </property>
-          <property name="tabBarAutoHide">
-           <bool>false</bool>
-          </property>
-          <widget class="QWidget" name="store_games">
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(45, 45, 45);</string>
-           </property>
-           <attribute name="title">
-            <string>Games</string>
-           </attribute>
-           <widget class="QWidget" name="verticalWidget_3" native="true">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>731</width>
-              <height>441</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_7">
-             <property name="leftMargin">
-              <number>9</number>
-             </property>
-             <property name="topMargin">
-              <number>9</number>
-             </property>
-             <property name="rightMargin">
-              <number>9</number>
-             </property>
-             <property name="bottomMargin">
-              <number>9</number>
-             </property>
-             <item>
-              <widget class="QScrollArea" name="scrollArea_3">
-               <property name="styleSheet">
-                <string notr="true">/* VERTICAL SCROLLBAR */
+               </property>
+               <property name="tabPosition">
+                <enum>QTabWidget::North</enum>
+               </property>
+               <property name="tabShape">
+                <enum>QTabWidget::Rounded</enum>
+               </property>
+               <property name="currentIndex">
+                <number>0</number>
+               </property>
+               <property name="elideMode">
+                <enum>Qt::ElideNone</enum>
+               </property>
+               <property name="usesScrollButtons">
+                <bool>true</bool>
+               </property>
+               <property name="documentMode">
+                <bool>false</bool>
+               </property>
+               <property name="tabsClosable">
+                <bool>false</bool>
+               </property>
+               <property name="tabBarAutoHide">
+                <bool>false</bool>
+               </property>
+               <widget class="QWidget" name="store_games">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(45, 45, 45);</string>
+                </property>
+                <attribute name="title">
+                 <string>Games</string>
+                </attribute>
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
+                 <item>
+                  <widget class="QWidget" name="store_games_widgets" native="true">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_9">
+                    <property name="leftMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>9</number>
+                    </property>
+                    <item>
+                     <widget class="QScrollArea" name="store_games_scrollArea">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">/* VERTICAL SCROLLBAR */
  QScrollBar:vertical {
 	border: none;
     background: rgb(45, 45, 45);
@@ -967,38 +908,67 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
 QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 	background: none;
 }</string>
-               </property>
-               <property name="widgetResizable">
-                <bool>true</bool>
-               </property>
-               <widget class="QWidget" name="scrollAreaWidgetContents_3">
-                <property name="geometry">
-                 <rect>
-                  <x>0</x>
-                  <y>0</y>
-                  <width>699</width>
-                  <height>2000</height>
-                 </rect>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_8">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
+                      </property>
+                      <property name="horizontalScrollBarPolicy">
+                       <enum>Qt::ScrollBarAsNeeded</enum>
+                      </property>
+                      <property name="sizeAdjustPolicy">
+                       <enum>QAbstractScrollArea::AdjustIgnored</enum>
+                      </property>
+                      <property name="widgetResizable">
+                       <bool>true</bool>
+                      </property>
+                      <widget class="QWidget" name="store_games_scrollAreaWidgetContents">
+                       <property name="geometry">
+                        <rect>
+                         <x>0</x>
+                         <y>0</y>
+                         <width>698</width>
+                         <height>2000</height>
+                        </rect>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_10">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QFrame" name="game1">
+                          <property name="minimumSize">
+                           <size>
+                            <width>698</width>
+                            <height>2000</height>
+                           </size>
+                          </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
                  <item>
-                  <widget class="QFrame" name="frame_4">
-                   <property name="minimumSize">
+                  <widget class="QFrame" name="store_games_right_spacer">
+                   <property name="maximumSize">
                     <size>
-                     <width>698</width>
-                     <height>2000</height>
+                     <width>108</width>
+                     <height>16777215</height>
                     </size>
                    </property>
                    <property name="frameShape">
@@ -1011,47 +981,60 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                  </item>
                 </layout>
                </widget>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="store_shop">
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(45, 45, 45);</string>
-           </property>
-           <attribute name="title">
-            <string>Shop</string>
-           </attribute>
-           <widget class="QWidget" name="verticalWidget_5" native="true">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>731</width>
-              <height>441</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_11">
-             <property name="leftMargin">
-              <number>9</number>
-             </property>
-             <property name="topMargin">
-              <number>9</number>
-             </property>
-             <property name="rightMargin">
-              <number>9</number>
-             </property>
-             <property name="bottomMargin">
-              <number>9</number>
-             </property>
-             <item>
-              <widget class="QScrollArea" name="scrollArea_5">
-               <property name="styleSheet">
-                <string notr="true">/* VERTICAL SCROLLBAR */
+               <widget class="QWidget" name="store_dlcs">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(45, 45, 45);</string>
+                </property>
+                <attribute name="title">
+                 <string>DLCs</string>
+                </attribute>
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
+                 <item>
+                  <widget class="QWidget" name="store_dlcs_widgets" native="true">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_9">
+                    <property name="leftMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>9</number>
+                    </property>
+                    <item>
+                     <widget class="QScrollArea" name="store_dlcs_scrollArea">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">/* VERTICAL SCROLLBAR */
  QScrollBar:vertical {
 	border: none;
     background: rgb(45, 45, 45);
@@ -1112,38 +1095,67 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
 QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 	background: none;
 }</string>
-               </property>
-               <property name="widgetResizable">
-                <bool>true</bool>
-               </property>
-               <widget class="QWidget" name="scrollAreaWidgetContents_5">
-                <property name="geometry">
-                 <rect>
-                  <x>0</x>
-                  <y>0</y>
-                  <width>699</width>
-                  <height>2000</height>
-                 </rect>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_12">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
+                      </property>
+                      <property name="horizontalScrollBarPolicy">
+                       <enum>Qt::ScrollBarAsNeeded</enum>
+                      </property>
+                      <property name="sizeAdjustPolicy">
+                       <enum>QAbstractScrollArea::AdjustIgnored</enum>
+                      </property>
+                      <property name="widgetResizable">
+                       <bool>true</bool>
+                      </property>
+                      <widget class="QWidget" name="store_dlcs_scrollAreaWidgetContents">
+                       <property name="geometry">
+                        <rect>
+                         <x>0</x>
+                         <y>0</y>
+                         <width>698</width>
+                         <height>2000</height>
+                        </rect>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_10">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QFrame" name="dlc1">
+                          <property name="minimumSize">
+                           <size>
+                            <width>698</width>
+                            <height>2000</height>
+                           </size>
+                          </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
                  <item>
-                  <widget class="QFrame" name="frame_6">
-                   <property name="minimumSize">
+                  <widget class="QFrame" name="store_dlcs_right_spacer">
+                   <property name="maximumSize">
                     <size>
-                     <width>698</width>
-                     <height>2000</height>
+                     <width>108</width>
+                     <height>16777215</height>
                     </size>
                    </property>
                    <property name="frameShape">
@@ -1156,47 +1168,60 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                  </item>
                 </layout>
                </widget>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="store_dlcs">
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(45, 45, 45);</string>
-           </property>
-           <attribute name="title">
-            <string>DLCs</string>
-           </attribute>
-           <widget class="QWidget" name="verticalWidget_4" native="true">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>731</width>
-              <height>441</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_9">
-             <property name="leftMargin">
-              <number>9</number>
-             </property>
-             <property name="topMargin">
-              <number>9</number>
-             </property>
-             <property name="rightMargin">
-              <number>9</number>
-             </property>
-             <property name="bottomMargin">
-              <number>9</number>
-             </property>
-             <item>
-              <widget class="QScrollArea" name="scrollArea_4">
-               <property name="styleSheet">
-                <string notr="true">/* VERTICAL SCROLLBAR */
+               <widget class="QWidget" name="store_shop">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(45, 45, 45);</string>
+                </property>
+                <attribute name="title">
+                 <string>Shop</string>
+                </attribute>
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
+                 <item>
+                  <widget class="QWidget" name="store_shop_widgets" native="true">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_9">
+                    <property name="leftMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>9</number>
+                    </property>
+                    <item>
+                     <widget class="QScrollArea" name="store_shop_scrollArea">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">/* VERTICAL SCROLLBAR */
  QScrollBar:vertical {
 	border: none;
     background: rgb(45, 45, 45);
@@ -1257,38 +1282,506 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
 QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 	background: none;
 }</string>
+                      </property>
+                      <property name="horizontalScrollBarPolicy">
+                       <enum>Qt::ScrollBarAsNeeded</enum>
+                      </property>
+                      <property name="sizeAdjustPolicy">
+                       <enum>QAbstractScrollArea::AdjustIgnored</enum>
+                      </property>
+                      <property name="widgetResizable">
+                       <bool>true</bool>
+                      </property>
+                      <widget class="QWidget" name="store_shop_scrollAreaWidgetContents">
+                       <property name="geometry">
+                        <rect>
+                         <x>0</x>
+                         <y>0</y>
+                         <width>698</width>
+                         <height>2000</height>
+                        </rect>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_10">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QFrame" name="shop_frame">
+                          <property name="minimumSize">
+                           <size>
+                            <width>698</width>
+                            <height>2000</height>
+                           </size>
+                          </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="store_shop_right_spacer">
+                   <property name="maximumSize">
+                    <size>
+                     <width>108</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTabWidget" name="ownedWidget">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
                </property>
-               <property name="widgetResizable">
+               <property name="maximumSize">
+                <size>
+                 <width>1677725</width>
+                 <height>1677725</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Nirmala UI Semilight</family>
+                </font>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="autoFillBackground">
+                <bool>false</bool>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QTabBar::tab {
+  background: rgb(45, 45, 45);
+  color: rgb(168, 168, 168);
+  padding:10px;
+  border: 0px solid rgb(168, 168, 168);
+ }
+
+QTabWidget::pane { border: none; }
+
+ QTabBar::tab:selected {
+  border-bottom-width: 1px;
+ }</string>
+               </property>
+               <property name="tabPosition">
+                <enum>QTabWidget::North</enum>
+               </property>
+               <property name="tabShape">
+                <enum>QTabWidget::Rounded</enum>
+               </property>
+               <property name="currentIndex">
+                <number>0</number>
+               </property>
+               <property name="elideMode">
+                <enum>Qt::ElideNone</enum>
+               </property>
+               <property name="usesScrollButtons">
                 <bool>true</bool>
                </property>
-               <widget class="QWidget" name="scrollAreaWidgetContents_4">
-                <property name="geometry">
-                 <rect>
-                  <x>0</x>
-                  <y>0</y>
-                  <width>699</width>
-                  <height>2000</height>
-                 </rect>
+               <property name="documentMode">
+                <bool>false</bool>
+               </property>
+               <property name="tabsClosable">
+                <bool>false</bool>
+               </property>
+               <property name="tabBarAutoHide">
+                <bool>false</bool>
+               </property>
+               <widget class="QWidget" name="owned_games">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_10">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(45, 45, 45);</string>
+                </property>
+                <attribute name="title">
+                 <string>Games</string>
+                </attribute>
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
                  <item>
-                  <widget class="QFrame" name="frame_5">
-                   <property name="minimumSize">
+                  <widget class="QWidget" name="owned_games_widgets" native="true">
+                   <property name="maximumSize">
                     <size>
-                     <width>698</width>
-                     <height>2000</height>
+                     <width>16777215</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_9">
+                    <property name="leftMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>9</number>
+                    </property>
+                    <item>
+                     <widget class="QScrollArea" name="owned_games_scrollArea">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">/* VERTICAL SCROLLBAR */
+ QScrollBar:vertical {
+	border: none;
+    background: rgb(45, 45, 45);
+    width: 14px;
+    margin: 15px 0 15px 0;
+	border-radius: 0px;
+ }
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color: rgb(65, 65, 65);
+	min-height: 30px;
+	border-radius: 5px;
+}
+QScrollBar::handle:vertical:hover{	
+	background-color: rgb(75, 75, 75);
+}
+QScrollBar::handle:vertical:pressed {	
+	background-color: rgb(80, 80, 80);
+}
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: rgb(65, 65, 65);
+	height: 15px;
+	border-radius: 4px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: rgb(75, 75, 75);
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(80, 80, 80);
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	border: none;
+	background-color: rgb(65, 65, 65);
+	height: 15px;
+	border-radius: 4px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: rgb(75, 75, 75);
+}
+QScrollBar::add-line:vertical:pressed {	
+	background-color: rgb(80, 80, 80);
+}
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}</string>
+                      </property>
+                      <property name="horizontalScrollBarPolicy">
+                       <enum>Qt::ScrollBarAsNeeded</enum>
+                      </property>
+                      <property name="sizeAdjustPolicy">
+                       <enum>QAbstractScrollArea::AdjustIgnored</enum>
+                      </property>
+                      <property name="widgetResizable">
+                       <bool>true</bool>
+                      </property>
+                      <widget class="QWidget" name="owned_games_scrollAreaWidgetContents">
+                       <property name="geometry">
+                        <rect>
+                         <x>0</x>
+                         <y>0</y>
+                         <width>698</width>
+                         <height>2000</height>
+                        </rect>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_10">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QFrame" name="game1">
+                          <property name="minimumSize">
+                           <size>
+                            <width>698</width>
+                            <height>2000</height>
+                           </size>
+                          </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="owned_games_right_spacer">
+                   <property name="maximumSize">
+                    <size>
+                     <width>108</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="owned_dlcs">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(45, 45, 45);</string>
+                </property>
+                <attribute name="title">
+                 <string>DLCs</string>
+                </attribute>
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
+                 <item>
+                  <widget class="QWidget" name="owned_dlcs_widgets" native="true">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_9">
+                    <property name="leftMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>9</number>
+                    </property>
+                    <item>
+                     <widget class="QScrollArea" name="owned_dlcs_scrollArea">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">/* VERTICAL SCROLLBAR */
+ QScrollBar:vertical {
+	border: none;
+    background: rgb(45, 45, 45);
+    width: 14px;
+    margin: 15px 0 15px 0;
+	border-radius: 0px;
+ }
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color: rgb(65, 65, 65);
+	min-height: 30px;
+	border-radius: 5px;
+}
+QScrollBar::handle:vertical:hover{	
+	background-color: rgb(75, 75, 75);
+}
+QScrollBar::handle:vertical:pressed {	
+	background-color: rgb(80, 80, 80);
+}
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: rgb(65, 65, 65);
+	height: 15px;
+	border-radius: 4px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: rgb(75, 75, 75);
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(80, 80, 80);
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	border: none;
+	background-color: rgb(65, 65, 65);
+	height: 15px;
+	border-radius: 4px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: rgb(75, 75, 75);
+}
+QScrollBar::add-line:vertical:pressed {	
+	background-color: rgb(80, 80, 80);
+}
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}</string>
+                      </property>
+                      <property name="horizontalScrollBarPolicy">
+                       <enum>Qt::ScrollBarAsNeeded</enum>
+                      </property>
+                      <property name="sizeAdjustPolicy">
+                       <enum>QAbstractScrollArea::AdjustIgnored</enum>
+                      </property>
+                      <property name="widgetResizable">
+                       <bool>true</bool>
+                      </property>
+                      <widget class="QWidget" name="owned_dlcs_scrollAreaWidgetContents">
+                       <property name="geometry">
+                        <rect>
+                         <x>0</x>
+                         <y>0</y>
+                         <width>698</width>
+                         <height>2000</height>
+                        </rect>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_10">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QFrame" name="dlc1">
+                          <property name="minimumSize">
+                           <size>
+                            <width>698</width>
+                            <height>2000</height>
+                           </size>
+                          </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="owned_dlcs_right_spacer">
+                   <property name="maximumSize">
+                    <size>
+                     <width>108</width>
+                     <height>16777215</height>
                     </size>
                    </property>
                    <property name="frameShape">
@@ -1305,8 +1798,89 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              </item>
             </layout>
            </widget>
-          </widget>
-         </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="bottomBar">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: none;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="bottomSpacer">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>1677721</width>
+              <height>1677721</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="resizer">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>SizeFDiagCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>icons/resize-dots.png</normaloff>icons/resize-dots.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
