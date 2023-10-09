@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>880</width>
-    <height>600</height>
+    <width>1019</width>
+    <height>671</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -1403,7 +1403,7 @@ QTabWidget::pane { border: none; }
                 <enum>QTabWidget::Rounded</enum>
                </property>
                <property name="currentIndex">
-                <number>0</number>
+                <number>1</number>
                </property>
                <property name="elideMode">
                 <enum>Qt::ElideNone</enum>
@@ -1861,23 +1861,57 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="resizer">
+           <widget class="QFrame" name="resizer">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
-            <property name="cursor">
-             <cursorShape>SizeFDiagCursor</cursorShape>
+            <property name="maximumSize">
+             <size>
+              <width>28</width>
+              <height>28</height>
+             </size>
             </property>
-            <property name="text">
-             <string/>
+            <property name="styleSheet">
+             <string notr="true"/>
             </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>icons/resize-dots.png</normaloff>icons/resize-dots.png</iconset>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
             </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <widget class="QLabel" name="resizer_icon">
+             <property name="geometry">
+              <rect>
+               <x>4</x>
+               <y>0</y>
+               <width>21</width>
+               <height>21</height>
+              </rect>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap>icons/resize-dots.png</pixmap>
+             </property>
+             <property name="scaledContents">
+              <bool>true</bool>
+             </property>
+            </widget>
+            <widget class="QSizeGrip" name="aaaa" native="true">
+             <property name="geometry">
+              <rect>
+               <x>6</x>
+               <y>4</y>
+               <width>21</width>
+               <height>21</height>
+              </rect>
+             </property>
+            </widget>
            </widget>
           </item>
          </layout>
@@ -1887,8 +1921,30 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      </widget>
     </item>
    </layout>
+   <widget class="QFrame" name="player_menu_popup">
+    <property name="geometry">
+     <rect>
+      <x>830</x>
+      <y>90</y>
+      <width>160</width>
+      <height>140</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(107, 107, 107);
+border: 1px solid white;
+border-color: rgb(107, 107, 107);</string>
+    </property>
+   </widget>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QSizeGrip</class>
+   <extends>QWidget</extends>
+   <header>qsizegrip.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
