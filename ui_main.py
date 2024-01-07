@@ -1002,4 +1002,4 @@ class Ui_MainWindow(object):
         self.MenuIndicator.show()
         self.MenuIndicator.setGeometry(QtCore.QRect(378, 0, 100, 1))
     def player_btn(self):
-        
+        print("dd")
